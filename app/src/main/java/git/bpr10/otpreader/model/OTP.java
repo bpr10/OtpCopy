@@ -1,4 +1,4 @@
-package git.bpr10.otpreader;
+package git.bpr10.otpreader.model;
 
 /**
  * @author: bedprakash on 23/12/16.

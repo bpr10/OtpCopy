@@ -1,4 +1,4 @@
-package git.bpr10.otpreader;
+package git.bpr10.otpreader.services;
 
 import android.app.IntentService;
 import android.content.ClipData;
