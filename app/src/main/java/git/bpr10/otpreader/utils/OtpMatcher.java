@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import git.bpr10.otpreader.OTP;
+import git.bpr10.otpreader.model.OTP;
 
 /**
  * @author: bedprakash on 23/12/16.
