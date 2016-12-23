@@ -13,7 +13,7 @@ import android.util.Log;
 public class SmsReciever extends BroadcastReceiver {
 
   private static final String SMS_RECEIVED_INTENT_ACTION =
-      "android.provider.Telephony.SMS_RECEIVED_INTENT_ACTION";
+      "android.provider.Telephony.SMS_RECEIVED";
   private static final String TAG = "SMSBroadcastReceiver";
 
   @Override
