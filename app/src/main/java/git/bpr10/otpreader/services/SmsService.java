@@ -57,7 +57,8 @@ public class SmsService extends IntentService {
 
     if (otp != null) {
       copyToClipBoard(otp);
-      showToast("OTP for " + currentMessage.getDisplayOriginatingAddress() + " is Copied : " + otp);
+      showToast("OTP for " + currentMessage.getDisplayOriginatingAddress()
+          + " is Copied to your clipborad :" + otp);
     }
   }
 

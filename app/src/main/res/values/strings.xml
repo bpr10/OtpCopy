@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">OtpReader</string>
+    <string name="app_info">This app evaluates your incoming sms and if they contain any
+        valid OTP it copies it to your phone\'s Clipboard. All you need to do is just long
+        press and the paste the OTP.
+    </string>
+    <string name="no_internet_info">P.S. We don\'t use Internet permission. So your OTP is
+        totally safe with us.
+    </string>
 </resources>
