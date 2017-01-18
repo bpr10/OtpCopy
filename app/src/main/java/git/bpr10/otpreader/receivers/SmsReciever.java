@@ -1,4 +1,4 @@
-package git.bpr10.otpreader.services;
+package git.bpr10.otpreader.receivers;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import git.bpr10.otpreader.OtpApplication;
+import git.bpr10.otpreader.services.SmsService;
 
 /**
  * @author: bedprakash on 18/12/16.
