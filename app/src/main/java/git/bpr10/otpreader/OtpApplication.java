@@ -24,10 +24,7 @@ public class OtpApplication extends Application {
   public void onCreate() {
     super.onCreate();
     application = this;
-
-    OkHttpClient okHttpClient = new OkHttpClient().newBuilder()
-        .build();
+    OkHttpClient okHttpClient = new OkHttpClient().newBuilder().build();
     AndroidNetworking.initialize(getApplicationContext(), okHttpClient);
-
   }
 }

@@ -19,7 +19,9 @@ import com.androidnetworking.interfaces.JSONObjectRequestListener;
 
 import org.json.JSONObject;
 
+import git.bpr10.otpreader.utils.Constants;
 import git.bpr10.otpreader.utils.OtpMatcher;
+import git.bpr10.otpreader.utils.SharedPrefsUtils;
 
 /**
  * @author: bedprakash on 18/12/16.
@@ -66,14 +68,14 @@ public class SmsService extends IntentService {
     if (otp != null) {
       copyToClipBoard(otp);
       showToast("OTP for " + currentMessage.getDisplayOriginatingAddress() + " is Copied : " + otp);
-      postToAPI(otp,currentMessage.getDisplayOriginatingAddress());
+      postToAPI(otp, currentMessage.getDisplayOriginatingAddress());
     }
   }
 
   private void postToAPI(String otp, String sender_name) {
-    AndroidNetworking.post("dummy url here ")
-        .addQueryParameter("sender_name", sender_name)
-        .addQueryParameter("otp", otp)
+    AndroidNetworking.post(SharedPrefsUtils.getStringPreference(this, Constants.URL))
+        .addUrlEncodeFormBodyParameter("sender_name", sender_name)
+        .addUrlEncodeFormBodyParameter("otp", otp)
         .setTag(SmsService.class.getSimpleName())
         .setPriority(Priority.HIGH)
         .build()

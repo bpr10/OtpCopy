@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">OtpReader</string>
+    <string name="hint_url">Enter Url</string>
+    <string name="error_invalid_url">Not a valid error</string>
 </resources>
